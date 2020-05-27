@@ -1,43 +1,36 @@
 package Commands;
 
-import FillCollection.HumanBeing;
+import Controller.CommandWithLogin;
+import Controller.Commandable;
+import Controller.HumanCollection;
 
-import java.util.Iterator;
-import java.util.Scanner;
+import java.util.ArrayList;
+import java.util.stream.Collectors;
 
 /**
  * Removes element by its id
  *
  * @author Diana
  */
-public class Remove_by_id implements Commandable {
-    HumanCollection humans = new HumanCollection();
+public class Remove_by_id implements Commandable, CommandWithLogin {
     String name = "remove_by_id";
+    String username;
+
     public String getName() {
         return name;
     }
+
     /**
-     * @param arg 's id
+     * @param arg id
      * @return
      */
     public Object execute(Object arg) {
-        try {
-            int id = Integer.parseInt((String) arg);
-            String ans = "Нет челика с таким id.";
-            Iterator<HumanBeing> it = (Iterator<HumanBeing>) humans.getArray().iterator();
-            while (it.hasNext()) {
-                HumanBeing human = (HumanBeing) it.next();
-                int humanId = (int) human.getId();
-                if (id == humanId) {
-                    it.remove();
-                    ans = "Челик успешно удален";
-                }
-            }
-            return (ans);
-        } catch (NumberFormatException exp) {
-			return ("Значение аргумента должно быть типа:\"long\".");
+        return null;
 
-        }
+    }
 
+    @Override
+    public void setUsername(String login) {
+        username = login;
     }
 }

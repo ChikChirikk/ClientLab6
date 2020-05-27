@@ -1,5 +1,7 @@
 package Commands;
 
+import Controller.CommandWithoutArg;
+
 import java.io.IOException;
 
 /**
@@ -9,14 +11,13 @@ import java.io.IOException;
  */
 public class Exit implements CommandWithoutArg {
     String name = "exit";
+
     /**
      * @param arg ignore this
      * @return
      */
     @Override
     public Object execute(Object arg) throws IOException {
-        System.out.println("Коллекция сохранена.");
-        System.exit(0);
         return null;
     }
 

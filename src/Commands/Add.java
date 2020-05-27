@@ -1,33 +1,36 @@
 package Commands;
 
-/**
- * add new element in collection
- *
- * @author Polina
- */
-public class Add implements CommandWithObject, CommandWithoutArg {
-    HumanCollection humans = new HumanCollection();
+import Controller.CommandWithLogin;
+import Controller.CommandWithObject;
+import Controller.CommandWithoutArg;
+import Controller.HumanCollection;
+import Human.HumanBeing;
+
+
+public class Add implements CommandWithObject, CommandWithoutArg, CommandWithLogin {
     String name = "add";
+    String username;
 
     public String getName() {
         return name;
     }
 
-    /**
-     * @param arg ignore this
-     * @return
-     */
     public Object execute(Object arg) {
-    	return null;
+        return null;
     }
 
     @Override
     public boolean check(String arg) {
-        return true;
+        return false;
     }
 
     @Override
     public String whyFailed() {
         return null;
+    }
+
+    @Override
+    public void setUsername(String login) {
+        username = login;
     }
 }

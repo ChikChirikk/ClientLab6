@@ -1,19 +1,27 @@
 package Commands;
+import Controller.*;
+import Human.HumanBeing;
 /**
  * Remove first element
  * @author Polina
  */
-public class Remove_first implements CommandWithoutArg {
-	HumanCollection humans = new HumanCollection();
+public class Remove_first implements CommandWithoutArg, CommandWithLogin {
 	String name = "remove_first";
-	public String getName() {
-		return name;
-	}
+	String username;
     /**
 	 * @param arg ignore this
 	 * @return
 	 */
-	public Object execute(Object arg) {
+	public Object execute(Object arg){
 		return null;
+	}
+	@Override
+	public String getName() {
+		return name;
+	}
+
+	@Override
+	public void setUsername(String login) {
+		username = login;
 	}
 }

@@ -1,5 +1,7 @@
 package Commands;
 
+import Controller.CommandWithoutArg;
+
 /**
  * show all commands
  *
@@ -9,6 +11,7 @@ package Commands;
 public class Help implements CommandWithoutArg {
     String name = "help";
 
+    @Override
     public String getName() {
         return name;
     }
@@ -20,6 +23,6 @@ public class Help implements CommandWithoutArg {
     @Override
     public Object execute(Object arg) {
         return null;
-
     }
+
 }

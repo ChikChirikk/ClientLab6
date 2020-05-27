@@ -1,10 +1,7 @@
 package Utilites;
 
-import FillCollection.HumanBeing;
-import FillCollection.HumanBeing.Car;
-import FillCollection.HumanBeing.Coordinates;
-import FillCollection.HumanBeing.WeaponType;
-
+import Human.HumanBeing.*;
+import Human.HumanBeing;
 import java.io.Serializable;
 import java.time.LocalDate;
 import java.util.InputMismatchException;
@@ -84,8 +81,7 @@ public class CreateHuman implements Serializable {
             this.setNameForCarFromFile(car, params[10]);
             human.setCar(car);
             return human;
-        }
-        else{
+        } else {
             whyFailed = "";
             return null;
         }
@@ -101,7 +97,7 @@ public class CreateHuman implements Serializable {
 
     }
 
-    public void setCoordinateXForCoordinates(Coordinates coords) {
+    public void setCoordinateXForCoordinates(HumanBeing.Coordinates coords) {
         try {
             Scanner scanner = new Scanner(System.in);
             System.out.println("Введите координату x");
@@ -291,7 +287,7 @@ public class CreateHuman implements Serializable {
         } else if (hasToothPick.equals("true") || hasToothPick.equals("false"))
             human.setHasToothpick(Boolean.parseBoolean(hasToothPick));
         else {
-            whyFailed +="Значение поля \"Есть ли у челика зубочистка\" должно быть типа:\"boolean\".\n";
+            whyFailed += "Значение поля \"Есть ли у челика зубочистка\" должно быть типа:\"boolean\".\n";
 
         }
     }
@@ -312,7 +308,7 @@ public class CreateHuman implements Serializable {
             if (soundtrackName.equals("") || soundtrackName.equals(null)) this.setSoundtrackNameForHuman(human);
             human.setSoundtrackName(soundtrackName);
         } catch (InputMismatchException e) {
-            whyFailed +=("Значение поля \"Название саундтрека\" должно быть строчного типа\n");
+            whyFailed += ("Значение поля \"Название саундтрека\" должно быть строчного типа\n");
 
         }
     }
@@ -333,7 +329,8 @@ public class CreateHuman implements Serializable {
             if (weaponeType.toUpperCase().equals("KNIFE") || weaponeType.toUpperCase().equals("HAMMER") || weaponeType.toUpperCase().equals("BAT") || weaponeType.equals("RIFLE"))
                 human.setWeaponType(WeaponType.valueOf(weaponeType));
             else if (weaponeType.equals("") || weaponeType.equals(null)) this.setWeaponeTypeForHuman(human);
-            else whyFailed += ("Значение поля \"Тип оружия\" должно соответствовать перечислинным типам(KNIFE, HAMMER, BAT, RIFLE).\n");
+            else
+                whyFailed += ("Значение поля \"Тип оружия\" должно соответствовать перечислинным типам(KNIFE, HAMMER, BAT, RIFLE).\n");
 
         } catch (InputMismatchException e) {
             whyFailed += ("Значение поля \"Тип оружия\" должно соответствовать перечислинным типам(KNIFE, HAMMER, BAT, RIFLE).\n");
@@ -346,7 +343,7 @@ public class CreateHuman implements Serializable {
             if (nameCar.equals("") || nameCar.equals(null)) this.setNameForCar(car);
             car.setCarName(nameCar);
         } catch (InputMismatchException e) {
-            whyFailed +=("Значение должно быть типа:\"String\". Введите значение заново\n");
+            whyFailed += ("Значение должно быть типа:\"String\". Введите значение заново\n");
 
         }
     }

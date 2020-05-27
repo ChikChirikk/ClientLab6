@@ -1,15 +1,18 @@
 package Commands;
 
+import Controller.CommandWithLogin;
+import Controller.CommandWithObject;
+
 /**
  * add update element in collection by its id
  *
  * @author Polina
  */
-public class Update implements CommandWithObject {
+public class Update implements CommandWithObject, CommandWithLogin {
     static long arg;
     String whyFailed;
-    HumanCollection humans = new HumanCollection();
     String name = "update";
+    String username;
 
     public String getName() {
         return name;
@@ -33,6 +36,11 @@ public class Update implements CommandWithObject {
     @Override
     public String whyFailed() {
         return whyFailed;
+    }
+
+    @Override
+    public void setUsername(String login) {
+        username = login;
     }
 }
 
